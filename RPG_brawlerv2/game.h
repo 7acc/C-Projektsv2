@@ -13,9 +13,14 @@
 
 #ifndef GAME_H
 #define GAME_H
+#include "player.h"
+#include "enemy.h"
 #include <stdint.h>
 
 
+
+player_t arena_player;
+enemy_t *curr_enemy;
 int8_t GAME_startArena(void);
 
 
