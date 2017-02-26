@@ -6,14 +6,15 @@
 #include <stdint.h>
 #include <math.h>
 
-void WEAPON_init(weapon_t *weapon, char *name, int16_t price, int8_t dmg)
+void WEAPON_init(weapon_t *weapon, char *name, int16_t price, int8_t dmg, int8_t acc)
 {
   strcpy(weapon->name, name);
   weapon->price = price;
   weapon->dmg = dmg;
+  weapon->accuracy = acc;
 }
 
-weapon_t createWeaponTypes(char *name, int16_t price, int8_t dmg)
+weapon_t createWeaponTypes(char *name, int16_t price, int8_t dmg,int8_t acc)
 {
   weapon_t weapon_type;
 
@@ -29,7 +30,9 @@ int8_t WEAPON_useWeapon(weapon_t *attk_wpn, defense_t *opponent_deff)
   float_t total_dmg_dealt = 0;
 
 
-  dmg = attk_wpn->dmg;
+  dmg = acc_calc(attk_wpn->accuracy, attk_wpn->dmg);
+ 
+  
   dmg_reduction = (100 - opponent_deff->defense);
 
 
@@ -47,5 +50,9 @@ int8_t WEAPON_useWeapon(weapon_t *attk_wpn, defense_t *opponent_deff)
 }
 static int8_t acc_calc(int acc, int dmg)
 {
+  int newdmg = 0;
+  srand(time(NULL));
+  newdmg = (dmg * ((rand() % (100 +1 - acc)) + acc)) / 100;
+  return newdmg;
   
 }

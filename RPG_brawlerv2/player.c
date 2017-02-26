@@ -14,8 +14,9 @@ static player_t createPlayer(char *name)
     new_player.coin_purse = 2000;
     new_player.defense;
      new_player.weapon;
-     
+    
      new_player.image = &image_player;
+     
 
     return new_player;
 }

@@ -1,5 +1,8 @@
 #include "game.h"
+
+
 #include "shop.h"
+#include "enemy.h"
 #include "images.h"
 #include "ze engine.h"
 #include <stdio.h>
@@ -23,7 +26,7 @@ void initStage1(void)
     printf("STAGE ONE");
 
     enemy_count = 1;
-    stage_enemies[0] = createSwampMonster(80, 20, 15);
+  stage_enemies[0] = createSwampMonster(80, 20, 15,70);
 }
 
 void initStage2()
@@ -31,8 +34,8 @@ void initStage2()
     enemy_count = 2;
     stage_index = 1;
     printf("STAGE TWO");
-    stage_enemies[1] = createCupcakeThief(50, 10, 25);
-    stage_enemies[2] = createCupcakeThief(50, 10, 25);
+  stage_enemies[1] = createCupcakeThief(50, 10, 25,60);
+  stage_enemies[2] = createCupcakeThief(50, 10, 25,60);
 
 }
 
@@ -40,7 +43,7 @@ void initStage3()
 {
     enemy_count = 1;
     stage_index = 3;
-    stage_enemies[3] = createBeastman(110, 30, 50);
+  stage_enemies[3] = createBeastman(110, 30, 50,70);
 }
 
 void setStage(int8_t stage_NR)

@@ -20,6 +20,15 @@ void populateShopeDefensives(void)
   DEFENSE_init(&defense_types[4],"Rugged leather shield", 50, 10);
   DEFENSE_init(&defense_types[5],"Wool-shield", 20, 5);
 }
+void populateShopWeapons(void)
+{
+
+  WEAPON_init(&weapon_types[0], "Sloppy-fish2", 1000, 10,95);
+  WEAPON_init(&weapon_types[1], "Great-sword", 500, 40,50);
+  WEAPON_init(&weapon_types[2], "Double-axe", 600, 45,50);
+
+}
+
 
 void SHOP_chooseDefenseItem(player_t *current_player)
 {
@@ -59,14 +68,6 @@ void SHOP_chooseDefenseItem(player_t *current_player)
           current_player->coin_purse);
 }
 
-void populateShopWeapons(void)
-{
-
-  WEAPON_init(&weapon_types[0], "Sloppy-fish2", 1000, 10);
-  WEAPON_init(&weapon_types[1], "Great-sword", 500, 40);
-  WEAPON_init(&weapon_types[2], "Double-axe", 600, 45);
-
-}
 
 void SHOP_chooseWeapon(player_t *current_player)
 {
